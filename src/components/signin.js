@@ -1,0 +1,72 @@
+import React, { Component } from 'react';
+import {signinFunc} from "./serviceclient";
+import {Redirect} from 'react-router-dom';
+
+class Signin extends Component {
+
+    state = {username: "", password: '', confirmPassword:"", redirect:false};
+    handleUsernameChange = (e) => {
+        const uusiarvo = e.target.value;
+        this.setState({username: uusiarvo});
+    }
+    handlePasswordChange = (e) => {
+        const uusiarvo = e.target.value;
+        this.setState({password: uusiarvo});
+        if (this.confirmPassword === this.password) {
+            document.getElementById("pwd2").style = "border-color:green;"; 
+        } else {
+            document.getElementById("pwd2").style = "border-color:red;"; 
+        }
+    }
+    handleconfirmPasswordChange = (e) => {
+        const uusiarvo = e.target.value;
+        this.setState({confirmPassword: uusiarvo});
+        if (this.confirmPassword === this.password) {
+            document.getElementById("pwd2").style = "border-color:green;"; 
+        } else {
+            document.getElementById("pwd2").style = "border-color:red;"; 
+        }
+    }
+    handleCreateClick = () => {
+        signinFunc(this.state)
+        .then(response => {
+            if (response.ok == true) {
+                console.log("ok", response)
+                this.setState({redirect:true})
+            } else {
+                console.log("ei ok", response)
+            }
+            
+        })
+    }
+
+    render() {
+        console.log("this.state.redirect: ",this.state.redirect)
+        if (this.state.redirect === true) {
+            console.log("toimii")
+            return <Redirect to='/home/'/>
+        }
+        return (
+                <div>
+                    <h2>Create new user account</h2>
+                <form>
+                <label>Username</label>
+                        <input type="text" placeholder="Username" 
+                            value={this.state.username} onChange={this.handleUsernameChange}
+                            required="required"/>
+
+                <label>Password</label>
+                <input type="text" placeholder="Password" 
+                            value={this.state.password} onChange={this.handlePasswordChange} required="required" id="pwd1"/>
+                 
+                 <input type="text" placeholder="Password" 
+                            value={this.state.confirmPassword} onChange={this.handleconfirmPasswordChange} required="required" id="pwd2"/>
+                 
+                    <button type="submit" onClick={this.handleCreateClick}>Login</button>
+                </form>
+            </div>
+        );
+    }
+}
+
+export default Signin;
