@@ -1,21 +1,23 @@
 var loginurl = "https://miniprojekti2.herokuapp.com/api/login";
-var signinUrl = "https://miniprojekti2.herokuapp.com/api/signin";
+var signupUrl = "https://miniprojekti2.herokuapp.com/api/signup";
 
 export function loginFunc(loginData) {
-    fetch(loginurl, {
+    return fetch(loginurl, {
         method: 'POST',
+        mode: "cors",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(loginData)
     }).then(function (response) {
+        console.log("loginFunc, ", response)
         return (response);
     });
 }
 
 export function signinFunc(loginData) {
-    return fetch(signinUrl, {
+    return fetch(signupUrl, {
         method: 'POST',
         mode: "cors",
         headers: {

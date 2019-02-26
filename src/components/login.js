@@ -3,7 +3,7 @@ import {loginFunc} from "./serviceclient";
 
 class Login extends Component {
 
-    state = {username: "", password: ''};
+    state = {username: "", password: '', redirect:false};
     handleUsernameChange = (e) => {
         const uusiarvo = e.target.value;
         this.setState({username: uusiarvo});
@@ -13,13 +13,27 @@ class Login extends Component {
         this.setState({password: uusiarvo});
     }
     handleCreateClick = () => {
-        loginFunc(this.state);
+        loginFunc(this.state)
+        .then(response => {
+            console.log(response, response.ok)
+            if (response.ok == true) {
+                console.log("ok", response)
+                this.setState({redirect:true})
+            } else {
+                console.log("ei ok", response)
+            }
+            
+        })
     }
 
         //this.props.callback(this.state);
         //this.setState({content: "", author: ''});
 
     render() {
+        if (this.state.redirect === true) {
+            console.log("toimii")
+            window.location.href = "./home"
+        }
         return (
             <div>
                 <h2>Login</h2>

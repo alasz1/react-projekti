@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {signinFunc} from "./serviceclient";
 import {Redirect} from 'react-router-dom';
+import {browserHistory} from 'react-router';
 
-class Signin extends Component {
+class Signup extends Component {
 
     state = {username: "", password: '', confirmPassword:"", redirect:false};
     handleUsernameChange = (e) => {
@@ -30,6 +31,7 @@ class Signin extends Component {
     handleCreateClick = () => {
         signinFunc(this.state)
         .then(response => {
+            console.log(response.ok)
             if (response.ok == true) {
                 console.log("ok", response)
                 this.setState({redirect:true})
@@ -44,7 +46,7 @@ class Signin extends Component {
         console.log("this.state.redirect: ",this.state.redirect)
         if (this.state.redirect === true) {
             console.log("toimii")
-            return <Redirect to='/home/'/>
+            window.location.href = "./home"
         }
         return (
                 <div>
@@ -69,4 +71,4 @@ class Signin extends Component {
     }
 }
 
-export default Signin;
+export default Signup;

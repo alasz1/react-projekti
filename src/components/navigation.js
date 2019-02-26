@@ -6,7 +6,7 @@ class Navigation extends Component {
             <div>
             
             <a href="/">Login </a>
-            <a href="/signin">Sign in </a>
+            <a href="/signup">Sign in </a>
 
         </div>
         );

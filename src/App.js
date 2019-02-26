@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import Home from './components/home';
 import Login from './components/login';
 import Navigation from './components/navigation';
-import Signin from './components/signin';
+import Signup from './components/signup';
 
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Login}/>
           <Route path="/home" component={Home}/>
-          <Route path="/signin" component={Signin}/>
+          <Route path="/signup" component={Signup}/>
         </Switch>
       </Router>
       </div>
