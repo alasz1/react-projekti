@@ -28,7 +28,8 @@ class Signup extends Component {
             document.getElementById("pwd2").style = "border-color:red;"; 
         }
     }
-    handleCreateClick = () => {
+    handleCreateClick = (e) => {
+        e.preventDefault()
         signinFunc(this.state)
         .then(response => {
             console.log(response.ok)

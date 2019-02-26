@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import {getAllMessages} from './serviceclient'
+import {sendMsgFunc} from './serviceclient'
 
 class Home extends Component {
 
-    state = {message:"", messages:[]}
+    state = {messageText:"", messages:[]}
 
-    componentDidMount() {
-        getAllMessages()
-        .then(response => {
-            console.log(response)
-            this.setState({messages:response})
-        })
-    }
+    // componentDidMount() {
+    //     getAllMessages()
+    //     .then(response => {
+    //         console.log(response)
+    //         this.setState({messages:response})
+    //     })
+    // }
+
     handleMessageChange = (e) => {
         const uusiarvo = e.target.value;
-        this.setState({message: uusiarvo});
+        this.setState({messageText: uusiarvo});
     }
-    handleCreateClick = () => {
+    handleCreateClick = (e) => {
+        e.preventDefault()
         console.log("message submitted")
+        sendMsgFunc()
     }
     render() {
         return (
@@ -25,13 +29,7 @@ class Home extends Component {
                 <h2>Home works!</h2>
 
 
-                <form>
-                        <input type="textarea" placeholder="Type message here" 
-                            value={this.state.message} onChange={this.handleMessageChange}/>
-                 
-                    <button type="submit" onClick={this.handleCreateClick}>Send</button>
-                    
-                </form>
+
          
             </div>
         );

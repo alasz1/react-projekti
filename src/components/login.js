@@ -12,7 +12,8 @@ class Login extends Component {
         const uusiarvo = e.target.value;
         this.setState({password: uusiarvo});
     }
-    handleCreateClick = () => {
+    handleCreateClick = (e) => {
+        e.preventDefault()
         console.log("click toimii")
         loginFunc(this.state)
         .then(response => {

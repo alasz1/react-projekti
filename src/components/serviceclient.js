@@ -1,11 +1,11 @@
-var loginurl = "https://miniprojekti2.herokuapp.com/api/login";
+var loginUrl = "https://miniprojekti2.herokuapp.com/api/login";
 var signupUrl = "https://miniprojekti2.herokuapp.com/api/signup";
 var msgUrl = "https://miniprojekti2.herokuapp.com/api/messages";
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
 export function loginFunc(loginData) {
-    return fetch(loginurl, {
+    return fetch(loginUrl, {
         method: 'POST',
         // mode: "cors",
         headers: {
@@ -14,31 +14,20 @@ export function loginFunc(loginData) {
             "cache-control": "no-cache",
         },
         body: JSON.stringify(loginData)
-    }).then(function (response) {
+    })
+    // .then(resp => resp.json())
+    .then(function (response) {
         console.log("loginFunc, ", response)
         return (response);
     });
 
-    // var data = JSON.stringify(loginData);
-
-    // xhr.addEventListener("readystatechange", function () {
-    //     if (this.readyState === 4) {
-    //         console.log(this.responseText);
-    //     }
-    // });
-
-    // xhr.open("POST", loginurl);
-    // xhr.setRequestHeader("Content-Type", "application/json");
-    // xhr.setRequestHeader("cache-control", "no-cache");
-
-    // xhr.send(data);
     
 }
 
 export function signinFunc(loginData) {
     return fetch(signupUrl, {
         method: 'POST',
-        mode: "cors",
+        //mode: "cors",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -59,4 +48,20 @@ export function getAllMessages() {
             this.setState({ data: returnData })
             return (data)
         })
+}
+
+export function sendMsgFunc(msgData) {
+    return fetch(msgUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            "cache-control": "no-cache",
+        },
+        body: JSON.stringify(msgData)
+    })
+    // .then(resp => resp.json())
+    .then(function (response) {
+        console.log("message sent", response)
+        return (response);
+    });
 }
