@@ -13,6 +13,7 @@ class Login extends Component {
         this.setState({password: uusiarvo});
     }
     handleCreateClick = () => {
+        console.log("click toimii")
         loginFunc(this.state)
         .then(response => {
             console.log(response, response.ok)
@@ -32,6 +33,7 @@ class Login extends Component {
     render() {
         if (this.state.redirect === true) {
             console.log("toimii")
+            this.setState({redirect:false})
             window.location.href = "./home"
         }
         return (
