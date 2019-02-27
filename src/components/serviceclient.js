@@ -8,6 +8,7 @@ xhr.withCredentials = true;
 export function loginFunc(loginData) {
     return fetch(loginUrl, {
         method: 'POST',
+        credentials: 'include',
         // mode: "cors",
         headers: {
             // 'Accept': 'application/json',
@@ -28,6 +29,7 @@ export function loginFunc(loginData) {
 export function signinFunc(loginData) {
     return fetch(signupUrl, {
         method: 'POST',
+        credentials: 'include',
         //mode: "cors",
         headers: {
             'Accept': 'application/json',
@@ -45,6 +47,7 @@ export function getAllMessages() {
     console.log("getAllMessages");
     return fetch(msgUrl, {
         method: 'GET',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -60,6 +63,7 @@ export function sendMsgFunc(msgData) {
     console.log("message: ",msgData)
     return fetch(msgUrl, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
             "cache-control": "no-cache",

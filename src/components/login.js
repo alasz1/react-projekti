@@ -18,9 +18,13 @@ class Login extends Component {
         loginFunc(this.state)
         .then(response => {
             console.log(response, response.ok)
-            if (response.ok === true) {
+            if (response.ok) {
+                // this.props.callbackFromParent(this.state.username)
+                console.log("this.props:",this.props)
                 console.log("ok", response)
-                this.setState({redirect:true, username:username})
+                // this.setState({redirect:true})
+                this.props.history.push("/home");
+            
             } else {
                 console.log("ei ok", response)
             }
@@ -28,14 +32,16 @@ class Login extends Component {
         })
     }
 
+
+
         //this.props.callback(this.state);
         //this.setState({content: "", author: ''});
 
     render() {
         if (this.state.redirect === true) {
             console.log("toimii")
-            this.setState({redirect:false})
-            window.location.href = "./home"
+            // this.setState({redirect:false})
+            // window.location.href = "./home"
         }
         return (
             <div>

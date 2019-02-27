@@ -33,9 +33,10 @@ class Signup extends Component {
         signinFunc(this.state)
         .then(response => {
             console.log(response.ok)
-            if (response.ok === true) {
+            if (response.ok) {
                 console.log("ok", response)
-                this.setState({redirect:true, username:username})
+                // this.setState({redirect:true})
+                this.props.history.push("/home");
             } else {
                 console.log("ei ok", response)
             }
@@ -47,7 +48,7 @@ class Signup extends Component {
         console.log("this.state.redirect: ",this.state.redirect)
         if (this.state.redirect === true) {
             console.log("toimii")
-            window.location.href = "./home"
+            // window.location.href = "./home"
         }
         return (
                 <div>

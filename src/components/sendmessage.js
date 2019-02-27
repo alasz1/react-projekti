@@ -14,6 +14,13 @@ class Sendmessage extends Component {
         this.setState({ messageText: uusiarvo });
     }
 
+    handleCreateClick = (e) => {
+        e.preventDefault()
+        console.log("message submitted")
+        sendMsgFunc(this.state)
+        this.setState({messageTitle:"", messageText:""})
+    }
+
     render() {
 
         return (

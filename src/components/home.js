@@ -10,6 +10,7 @@ class Home extends Component {
     state = {messages:[]}
 
     componentDidMount() {
+
         getAllMessages()
         .then(response => {
             console.log("DidMount@home: ", response)
@@ -17,19 +18,13 @@ class Home extends Component {
         })
     }
 
-    handleCreateClick = (e) => {
-        e.preventDefault()
-        console.log("message submitted")
-        sendMsgFunc(this.state)
-        this.setState({messageTitle:"", messageText:""})
-    }
-
     render() {
+        console.log("username toimii @home.js: ", this.props.username)
         return (
             <div>
                 <h2>Home works!</h2>
 
-                <Sendmessage handleCreateClick={handleCreateClick()}/>
+                <Sendmessage/>
 
     
             <Messagelist messages={this.state.messages}/>

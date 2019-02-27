@@ -8,7 +8,17 @@ import Signup from './components/signup';
 
 
 class App extends Component {
+  
+//   state = {dataFromChild:"abc"}
+  
+//   myCallback = (dataFromChild) => {
+//     console.log("datafromchild  @app.js: ", this.state.dataFromChild)
+//     this.setState({ dataFromChild: dataFromChild });
+    
+// }
+
   render() {
+
     return (
       <div>
       <Navigation/>
