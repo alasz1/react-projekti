@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {getCurrentUser} from './serviceclient';
+import {logoutFunc} from './serviceclient';
+
 
 class Navigation extends Component {
 
@@ -14,6 +16,17 @@ class Navigation extends Component {
         })
     }
 
+    logout() {
+        logoutFunc()
+        .then(response => {
+            if (response) {
+                console.log("logout response:",response)
+                // this.props.history.push("/");
+                window.location.href = "/";
+            }
+        })
+    }
+
     render() {
 
 
@@ -22,7 +35,7 @@ class Navigation extends Component {
             <div>
             
             <a href="/home">Home </a>
-            <a href="/">Logout </a>
+            <a type="button" onClick={this.logout}>Logout </a>
             
         </div>
         );
