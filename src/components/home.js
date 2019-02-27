@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {getAllMessages} from './serviceclient'
 import {sendMsgFunc} from './serviceclient'
+import Sendmessage from './sendmessage';
+
 
 class Home extends Component {
 
@@ -14,23 +16,15 @@ class Home extends Component {
     //     })
     // }
 
-    handleMessageChange = (e) => {
-        const uusiarvo = e.target.value;
-        this.setState({messageText: uusiarvo});
-    }
-    handleCreateClick = (e) => {
-        e.preventDefault()
-        console.log("message submitted")
-        sendMsgFunc()
-    }
+
     render() {
         return (
             <div>
                 <h2>Home works!</h2>
 
+                <Sendmessage/>
 
-
-         
+    
             </div>
         );
     }
