@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import {getAllMessages} from './serviceclient'
 import {sendMsgFunc} from './serviceclient'
+import Messagelist from './messagelist';
 
 class Home extends Component {
 
-    state = {messageText:"", messages:[]}
+    state = {messages:[]}
 
-    // componentDidMount() {
-    //     getAllMessages()
-    //     .then(response => {
-    //         console.log(response)
-    //         this.setState({messages:response})
-    //     })
-    // }
+    componentDidMount() {
+        getAllMessages()
+        .then(response => {
+            console.log("DidMount@home: ", response)
+            this.setState({messages:response})
+        })
+    }
 
     handleMessageChange = (e) => {
         const uusiarvo = e.target.value;
@@ -28,7 +29,7 @@ class Home extends Component {
             <div>
                 <h2>Home works!</h2>
 
-
+            <Messagelist messages={this.state.messages}/>
 
          
             </div>

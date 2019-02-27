@@ -1,6 +1,7 @@
 var loginUrl = "https://miniprojekti2.herokuapp.com/api/login";
 var signupUrl = "https://miniprojekti2.herokuapp.com/api/signup";
 var msgUrl = "https://miniprojekti2.herokuapp.com/api/messages";
+var localmsgUrl ="http://localhost:3000/api/messages";
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
@@ -41,13 +42,18 @@ export function signinFunc(loginData) {
 }
 
 export function getAllMessages() {
-    fetch(msgUrl)
+    console.log("getAllMessages");
+    return fetch(localmsgUrl, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
         .then(vastaus => vastaus.json())
-        .then(data => {
-            var returnData = JSON.parse(data)
-            this.setState({ data: returnData })
-            return (data)
-        })
+        .then(response => {
+            return response
+        });
 }
 
 export function sendMsgFunc(msgData) {

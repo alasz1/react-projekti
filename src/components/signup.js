@@ -33,7 +33,7 @@ class Signup extends Component {
         signinFunc(this.state)
         .then(response => {
             console.log(response.ok)
-            if (response.ok == true) {
+            if (response.ok === true) {
                 console.log("ok", response)
                 this.setState({redirect:true})
             } else {
