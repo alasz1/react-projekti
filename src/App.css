@@ -1,4 +1,65 @@
-.App {
+.navi {
+  margin: 20px;
+  padding: 20px;
+  background-color: black;
+}
+
+.messages {
+  margin: 20px;
+  padding: 10px;
+  background-color: pink;
+}
+
+.sendmessage {
+  margin: 20px;
+  background-color: lightgreen;
+}
+
+a {
+  text-decoration: none;
+}
+.home {
+  padding: 3px;
+  float: left;
+  background-color: lightgreen;
+  border-radius: 0.4em;
+}
+
+.logout {
+  padding: 3px;
+  float: right;
+  background-color: red;
+  border-radius: 0.4em;
+}
+
+.user {
+  float: right;
+}
+
+/* messagelist */
+
+.messagebox {
+  background-color: lightblue;
+  margin: 10px;
+  padding: 4px;
+  border: 2px;
+  border-radius: 1em;
+  box-shadow: 0 1px 6px 0 gray;
+}
+
+.author {
+  float: left;
+  font-weight: bold;
+  text-decoration: underline;
+
+}
+
+
+.date {
+  float: right;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +91,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -3,24 +3,18 @@ import { getAllMessages } from './serviceclient';
 
 class Messagelist extends Component {
 
-    // componentDidMount() {
-    //     getAllMessages()
-    //     .then(response =>
-    //         this.setState({ messages: response }))
-    // }
-
     render() {
         console.log("this.props.messages: ", this.props.messages);
         var allMessages = this.props.messages.map((m) =>
-            <tr key={m.id}><td>{m.username}</td><td>{m.time}</td><td>{m.messageTitle}</td><td>{m.messageText}</td></tr>)
+        <div className="messagebox">
+            <div className="messageitem"><span className="author">{m.username}</span><span className="date">{m.time}</span></div>
+            <span className="title">&nbsp;@{m.messageTitle}</span>
+            <article className="text">{m.messageText}</article>
+        </div>
+        )
         return (
             <div>
-                <p>All Messages from the Database</p>
-                <table>
-                    <tbody>
-                        {allMessages}
-                    </tbody>
-                </table>
+                {allMessages}
             </div>
         );
     }
