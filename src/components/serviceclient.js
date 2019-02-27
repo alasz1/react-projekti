@@ -23,8 +23,9 @@ export function loginFunc(loginData) {
     // .then(resp => resp.json())
     .then(function (response) {
         console.log("loginFunc, ", response)
-        return (response);
-    });
+        return response;
+    })
+   
 
     
 }
