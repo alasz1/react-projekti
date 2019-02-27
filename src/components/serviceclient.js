@@ -43,7 +43,7 @@ export function signinFunc(loginData) {
 
 export function getAllMessages() {
     console.log("getAllMessages");
-    return fetch(localmsgUrl, {
+    return fetch(msgUrl, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -57,6 +57,7 @@ export function getAllMessages() {
 }
 
 export function sendMsgFunc(msgData) {
+    console.log("message: ",msgData)
     return fetch(msgUrl, {
         method: 'POST',
         headers: {
@@ -65,7 +66,7 @@ export function sendMsgFunc(msgData) {
         },
         body: JSON.stringify(msgData)
     })
-    // .then(resp => resp.json())
+    .then(resp => resp.json())
     .then(function (response) {
         console.log("message sent", response)
         return (response);

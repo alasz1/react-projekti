@@ -17,13 +17,19 @@ class Home extends Component {
         })
     }
 
+    handleCreateClick = (e) => {
+        e.preventDefault()
+        console.log("message submitted")
+        sendMsgFunc(this.state)
+        this.setState({messageTitle:"", messageText:""})
+    }
 
     render() {
         return (
             <div>
                 <h2>Home works!</h2>
 
-                <Sendmessage/>
+                <Sendmessage handleCreateClick={handleCreateClick()}/>
 
     
             <Messagelist messages={this.state.messages}/>

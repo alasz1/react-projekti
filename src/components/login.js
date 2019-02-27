@@ -20,7 +20,7 @@ class Login extends Component {
             console.log(response, response.ok)
             if (response.ok === true) {
                 console.log("ok", response)
-                this.setState({redirect:true})
+                this.setState({redirect:true, username:username})
             } else {
                 console.log("ei ok", response)
             }
