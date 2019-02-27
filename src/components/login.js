@@ -18,7 +18,7 @@ class Login extends Component {
         loginFunc(this.state)
         .then(response => {
             console.log(response, response.ok)
-            if (response.ok == true) {
+            if (response.ok === true) {
                 console.log("ok", response)
                 this.setState({redirect:true})
             } else {

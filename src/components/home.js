@@ -3,18 +3,19 @@ import {getAllMessages} from './serviceclient'
 import {sendMsgFunc} from './serviceclient'
 import Sendmessage from './sendmessage';
 
+import Messagelist from './messagelist';
 
 class Home extends Component {
 
-    state = {messageText:"", messages:[]}
+    state = {messages:[]}
 
-    // componentDidMount() {
-    //     getAllMessages()
-    //     .then(response => {
-    //         console.log(response)
-    //         this.setState({messages:response})
-    //     })
-    // }
+    componentDidMount() {
+        getAllMessages()
+        .then(response => {
+            console.log("DidMount@home: ", response)
+            this.setState({messages:response})
+        })
+    }
 
 
     render() {
@@ -25,6 +26,9 @@ class Home extends Component {
                 <Sendmessage/>
 
     
+            <Messagelist messages={this.state.messages}/>
+
+         
             </div>
         );
     }
