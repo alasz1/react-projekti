@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {getAllMessages} from './serviceclient'
 import {sendMsgFunc} from './serviceclient'
 import Sendmessage from './sendmessage';
-
+import Navigation from './navigation';
 import Messagelist from './messagelist';
 
 class Home extends Component {
@@ -22,7 +22,7 @@ class Home extends Component {
         console.log("username toimii @home.js: ", this.props.username)
         return (
             <div>
-                <h2>Home works!</h2>
+                <Navigation/>
 
                 <Sendmessage/>
 

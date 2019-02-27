@@ -58,6 +58,8 @@ class Login extends Component {
                  
                     <button type="submit" onClick={this.handleCreateClick}>Login</button>
                 </form>
+                <br></br>
+                <a href="/signup">No account? Sign up here</a>
             </div>
         );
     }
