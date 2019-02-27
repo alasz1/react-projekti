@@ -3,7 +3,7 @@ import {loginFunc} from "./serviceclient";
 
 class Login extends Component {
 
-    state = {username: "", password: '', redirect:false};
+    state = {username: "", password: '', redirect:false, error:""};
     handleUsernameChange = (e) => {
         const uusiarvo = e.target.value;
         this.setState({username: uusiarvo});
@@ -17,8 +17,8 @@ class Login extends Component {
         console.log("click toimii")
         loginFunc(this.state)
         .then(response => {
-            console.log(response, response.ok)
-            if (response.ok) {
+            console.log(response.status)
+            if (response.status === 201) {
                 // this.props.callbackFromParent(this.state.username)
                 console.log("this.props:",this.props)
                 console.log("ok", response)
@@ -26,7 +26,11 @@ class Login extends Component {
                 this.props.history.push("/home");
             
             } else {
-                console.log("ei ok", response)
+                console.log("error: ", response)
+                response.json().then(function(json){
+                    this.setState({error:json})
+                })
+                // this.setState({respMsg:response})
             }
             
         })
@@ -42,7 +46,8 @@ class Login extends Component {
             console.log("toimii")
             // this.setState({redirect:false})
             // window.location.href = "./home"
-        }
+        } 
+        
         return (
             <div>
                 <h2>Login</h2>
@@ -59,6 +64,7 @@ class Login extends Component {
                     <button type="submit" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
+                {this.state.error}
                 <a href="/signup">No account? Sign up here</a>
             </div>
         );

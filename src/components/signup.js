@@ -63,7 +63,7 @@ class Signup extends Component {
                 <input type="text" placeholder="Password" 
                             value={this.state.password} onChange={this.handlePasswordChange} required="required" id="pwd1"/>
                  
-                 <input type="text" placeholder="Password" 
+                 <input type="text" placeholder="Password" type="password"
                             value={this.state.confirmPassword} onChange={this.handleconfirmPasswordChange} required="required" id="pwd2"/>
                  
                     <button type="submit" onClick={this.handleCreateClick}>Login</button>
