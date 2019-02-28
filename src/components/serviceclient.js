@@ -132,7 +132,7 @@ export function getAllReplies(req, res) {
         });
 }
 
-export function sendMsgFunc(replyData) {
+export function sendReplyFunc(replyData) {
     console.log("message: ",replyData)
     return fetch(repliesUrl, {
         method: 'POST',
