@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { getAllMessages } from './serviceclient';
+import Modal from './modal';
+
 
 class Messagelist extends Component {
 
@@ -15,6 +17,7 @@ class Messagelist extends Component {
         return (
             <div>
                 {allMessages}
+                <Modal/>
             </div>
         );
     }
