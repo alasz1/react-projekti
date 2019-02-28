@@ -133,7 +133,7 @@ export function getAllReplies(id) {
 }
 
 export function sendReplyFunc(replyData) {
-    console.log("message: ",replyData)
+    console.log("message: ", replyData)
     return fetch(repliesUrl, {
         method: 'POST',
         credentials: 'include',
@@ -148,4 +148,20 @@ export function sendReplyFunc(replyData) {
         console.log("message sent", response)
         return (response);
     });
+}
+
+export function deleteMessage(id) {
+    console.log("deleteMessage");
+    return fetch((msgUrl + "/" + id), {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(vastaus => vastaus.json())
+        .then(response => {
+            return response
+        });
 }
