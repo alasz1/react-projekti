@@ -28,19 +28,25 @@ class Navigation extends Component {
             })
     }
 
+    home() {
+        window.location.href = "/home";
+    }
+
     render() {
 
         return (
-            <div className="container">
-                <span className="home"><a href="/home">Home </a></span>
-                <span className="logout"><button type="button" onClick={this.logout}>Logout</button></span>
-                <span className="logout"><button type="button" onClick={this.logout}>Logout</button></span>
-                <br />
-                <span className="user">
-                    You are signed in as <b>{this.state.username}</b>
-                </span>
+            <div className="bigcontainer">
+                <div className="container">
+                    <button type="button" className="home" onClick={this.home}>Home</button>
+                    <button type="button" className="logout" onClick={this.logout}>Logout</button>
+                </div>
+                <div className="userNavi">
+                    <span className="user">
+                        You are signed in as <b>{this.state.username}</b>
+                    </span>
+                </div>
             </div>
-        );
+        )
     }
 }
 

@@ -66,7 +66,7 @@ class Signup extends Component {
                  <input placeholder="Password" type="password"
                             value={this.state.confirmPassword} onChange={this.handleconfirmPasswordChange} required="required" id="pwd2"/>
                  
-                    <button type="submit" onClick={this.handleCreateClick}>Login</button>
+                    <button type="submit" className="signup" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
                 Have an account already? <a href="/">Login here.</a>
