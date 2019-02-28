@@ -1,4 +1,74 @@
-.App {
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.navi {
+  margin: 50px;
+  padding: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* messagelist */
+
+.messagebox {
+  background-color: lightblue;
+  margin: 10px;
+  padding: 4px;
+  border: 2px;
+  border-radius: 1em;
+  box-shadow: 0 1px 6px 0 gray;
+}
+
+.author {
+  float: left;
+  font-weight: bold;
+  margin: 0px 5px;
+  text-decoration: underline;
+
+}
+
+
+.date {
+  float: right;
+  font-style: italic;
+  margin: 0px 5px;
+}
+
+.text {
+  margin: 0px 5px;
+}
+
+input {
+  width: 200px;
+  margin: 3px;
+  padding: 3px;
+  border: 1px 1px 0px 0px solid red;
+  border-radius: 2px;
+}
+
+textarea {
+  width: 200px;
+  height: 100px;
+  margin: 3px;
+  padding: 3px;
+  border: 2px solid red;
+  border-radius: 3px;
+}
+
+button {
+  border-radius: 6px;
+
+}
+
+button:hover {
+  background-color: lightgreen;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +100,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
