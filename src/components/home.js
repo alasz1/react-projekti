@@ -19,6 +19,8 @@ class Home extends Component {
             })
     }
 
+    
+
     render() {
         console.log("username toimii @home.js: ", this.props.username)
         return (
