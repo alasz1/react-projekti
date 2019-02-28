@@ -33,7 +33,7 @@ class Home extends Component {
                 </div>
                 <div className="wrapper">
                     <div className="messages">
-                        <Messagelist messages={this.state.messages} />
+                        <Messagelist messages={this.state.messages} callback={this.refreshList} />
                     </div>
                     <div className="sendmessage">
                         <Sendmessage callback={this.refreshList} />
