@@ -22,13 +22,13 @@ class Signup extends Component {
     }
     handleconfirmPasswordChange = (e) => {
         const uusiarvo = e.target.value;
-        this.setState({confirmPassword: uusiarvo});
         console.log(this.state.password, this.state.confirmPassword);
-        if (this.state.confirmPassword === this.state.password) {
+        if (uusiarvo === this.state.password) {
             document.getElementById("pwd2").style = "background-color:green;"; 
         } else {
             document.getElementById("pwd2").style = "background-color:red;"; 
         }
+        this.setState({confirmPassword: uusiarvo});
     }
     handleCreateClick = (e) => {
         e.preventDefault()

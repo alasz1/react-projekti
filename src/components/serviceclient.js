@@ -117,7 +117,7 @@ export function logoutFunc() {
 }
 
 export function getAllReplies(id) {
-    console.log("getAllReplies);
+    console.log("getAllReplies");
     return fetch((repliesUrl + "/" + id), {
         method: 'GET',
         credentials: 'include',
