@@ -1,6 +1,7 @@
 var loginUrl = "https://miniprojekti2.herokuapp.com/api/login";
 var signupUrl = "https://miniprojekti2.herokuapp.com/api/signup";
 var msgUrl = "https://miniprojekti2.herokuapp.com/api/messages";
+var repliesUrl = "https://miniprojekti2.herokuapp.com/api/replies";
 var localmsgUrl ="http://localhost:3000/api/messages";
 var currentUserUrl = "https://miniprojekti2.herokuapp.com/api/currentuser";
 var logoutUrl = "https://miniprojekti2.herokuapp.com/api/logout";
@@ -115,3 +116,18 @@ export function logoutFunc() {
         });
 }
 
+export function getAllReplies(id) {
+    console.log("getAllReplies, url: ", repliesUrl);
+    return fetch((repliesUrl + "/" + id), {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(vastaus => vastaus.json())
+        .then(response => {
+            return response
+        });
+}

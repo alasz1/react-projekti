@@ -7,16 +7,21 @@ import Replybox from './replybox';
 
 
 class Messagelist extends Component {
-    state= {message:{}};
+    state= {message:{}, replies:[]};
 
     toggleModal = (mes) => {
-        getAllReplies(m._id, (response) => {
+        console.log("togglemodal")
+        getAllReplies(mes._id)
+        .then(response => {
             this.setState({message:mes, replies:response});
             document.getElementById("modal-overlay").classList.toggle('show');
         })
-        // alert(m.messageTitle);
-        // alert("moro")
-        
+    }
+
+    toggleReply = (e) => {
+        console.log("togglereply")
+        this.setState({message:{}, replies:[]});
+        document.getElementById("modal-overlay").classList.toggle('show');
     }
 
     render() {
@@ -38,7 +43,7 @@ class Messagelist extends Component {
 
                 <div className="modal-overlay" id="modal-overlay">
                     <div className="modal">
-                        <span className="close" onClick={this.toggleModal}>&#10005;</span>
+                        <span className="close" onClick={this.toggleReply}>&#10005;</span>
                         {this.state.message.messageTitle}
                         {this.state.message.messageText}
                     
