@@ -117,7 +117,7 @@ export function logoutFunc() {
 }
 
 export function getAllReplies(id) {
-    console.log("getAllReplies);
+    console.log("getAllReplies");
     return fetch((repliesUrl + "/" + id), {
         method: 'GET',
         credentials: 'include',
@@ -133,7 +133,7 @@ export function getAllReplies(id) {
 }
 
 export function sendReplyFunc(replyData) {
-    console.log("message: ",replyData)
+    console.log("message: ", replyData)
     return fetch(repliesUrl, {
         method: 'POST',
         credentials: 'include',
