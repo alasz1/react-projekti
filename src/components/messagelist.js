@@ -40,8 +40,12 @@ class Messagelist extends Component {
 
     render() {
         //console.log("this.props.messages: ", this.props.messages);
-        var messagesReversed = this.props.messages.reverse();
-        var allMessages = messagesReversed.map((m) =>
+        var messagesSorted = this.props.messages.sort(function(a,b) {
+            a = new Date(a.time);
+            b = new Date(b.time);
+            return a>b ? -1 : a<b ? 1 : 0;
+        })
+        var allMessages = messagesSorted.map((m) =>
             <div onClick={() => { this.toggleModal(m) }}>
                 <Messagebox m={m} key={m.id} />
             </div>
