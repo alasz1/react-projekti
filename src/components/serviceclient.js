@@ -149,3 +149,19 @@ export function sendReplyFunc(replyData) {
         return (response);
     });
 }
+
+export function deleteMessage(id) {
+    console.log("deleteMessage");
+    return fetch((msgUrl + "/" + id), {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(vastaus => vastaus.json())
+        .then(response => {
+            return response
+        });
+}

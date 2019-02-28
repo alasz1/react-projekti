@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAllReplies, sendReplyFunc } from './serviceclient';
+import { getAllReplies, sendReplyFunc, getCurrentUser, deleteMessage } from './serviceclient';
 import Modal from './modal';
 import Messagebox from './messagebox';
 import './modal.css';
@@ -38,6 +38,7 @@ class Messagelist extends Component {
         })
     }
 
+
     render() {
         //console.log("this.props.messages: ", this.props.messages);
         var messagesSorted = this.props.messages.sort(function(a,b) {
@@ -55,6 +56,14 @@ class Messagelist extends Component {
             <Replybox res={r} key={r.id} />
         )
 
+        var button;
+        var currentUser = getCurrentUser()
+        .then(response => {
+        console.log("current user:", currentUser.user, "this.state.username:", this.state.message.username)
+        if (currentUser.user === this.state.message.username && this.state.message.username !== "Anonyymi") {
+            button = <button onClick={this.deleteMessage}>Delete message</button>
+        }})
+
         return (
             <div>
                 {allMessages}
@@ -69,6 +78,7 @@ class Messagelist extends Component {
                             <textarea placeholder="Type reply here" value={this.state.replyText} onChange={this.handleReplyTextChange} />
                             <br />
                             <button type="submit" onClick={this.handleCreateClick}>Send</button>
+                            {button}
                     </div>
                 </div>
 
