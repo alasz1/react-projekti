@@ -1,9 +1,11 @@
 var loginUrl = "https://miniprojekti2.herokuapp.com/api/login";
 var signupUrl = "https://miniprojekti2.herokuapp.com/api/signup";
 var msgUrl = "https://miniprojekti2.herokuapp.com/api/messages";
+var repliesUrl = "https://miniprojekti2.herokuapp.com/api/replies";
 var localmsgUrl ="http://localhost:3000/api/messages";
 var currentUserUrl = "https://miniprojekti2.herokuapp.com/api/currentuser";
 var logoutUrl = "https://miniprojekti2.herokuapp.com/api/logout";
+//var getRepliesUrl = "https://miniprojekti2.herokuapp.com/api/replies"
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -112,4 +114,38 @@ export function logoutFunc() {
         .then(response => {
             return response
         });
+}
+
+export function getAllReplies(id) {
+    console.log("getAllReplies");
+    return fetch((repliesUrl + "/" + id), {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(vastaus => vastaus.json())
+        .then(response => {
+            return response
+        });
+}
+
+export function sendReplyFunc(replyData) {
+    console.log("message: ", replyData)
+    return fetch(repliesUrl, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            "cache-control": "no-cache",
+        },
+        body: JSON.stringify(replyData)
+    })
+    .then(resp => resp.json())
+    .then(function (response) {
+        console.log("message sent", response)
+        return (response);
+    });
 }
