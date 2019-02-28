@@ -18,7 +18,7 @@ class Messagelist extends Component {
         return (
             <div>
                 {allMessages}
-                <Modal/>
+                {/* <Modal/> */}
             </div>
         );
     }
