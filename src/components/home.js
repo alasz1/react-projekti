@@ -19,7 +19,10 @@ class Home extends Component {
             })
     }
 
-    
+    refreshList = (messages) => {
+        this.setState({messages: messages});
+    }
+
 
     render() {
         console.log("username toimii @home.js: ", this.props.username)
@@ -33,7 +36,7 @@ class Home extends Component {
                         <Messagelist messages={this.state.messages} />
                     </div>
                     <div className="sendmessage">
-                        <Sendmessage />
+                        <Sendmessage callback={this.refreshList} />
                     </div>
                 </div>
             </div >

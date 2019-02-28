@@ -5,7 +5,8 @@ class Messagelist extends Component {
 
     render() {
         console.log("this.props.messages: ", this.props.messages);
-        var allMessages = this.props.messages.map((m) =>
+        var messagesReversed = this.props.messages.reverse();
+        var allMessages = messagesReversed.map((m) =>
         <div className="messagebox">
             <div className="messageitem"><span className="author">{m.username}</span><span className="date">{m.time}</span></div>
             <span className="title">&nbsp;@{m.messageTitle}</span>

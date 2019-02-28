@@ -18,7 +18,10 @@ class Sendmessage extends Component {
         e.preventDefault()
         console.log("message submitted")
         sendMsgFunc(this.state)
-        this.setState({messageTitle:"", messageText:""})
+        .then(response => {
+            this.props.callback(response);
+            this.setState({messageTitle:"", messageText:""})
+        })
     }
 
     render() {
