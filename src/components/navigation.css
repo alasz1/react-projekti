@@ -1,0 +1,22 @@
+.container {
+    background-color: lightblue;
+    height: 50px;
+    padding: 15px;
+}
+
+.home {
+    margin: 5px 5px;
+    padding: 3px;
+    background-color: lightgreen;
+    border-radius: 0.4em;
+  }
+  
+  .logout {
+    padding: 3px;
+    background-color: red;
+    border-radius: 0.4em;
+  }
+  
+  .user {
+
+  }

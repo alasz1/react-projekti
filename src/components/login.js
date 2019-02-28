@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {loginFunc} from "./serviceclient";
+import './login.css';
 
 class Login extends Component {
 
@@ -65,7 +66,7 @@ class Login extends Component {
                 </form>
                 <br></br>
                 {this.state.error}
-                <a href="/signup">No account? Sign up here</a>
+                No account yet? <a href="/signup">Sign up here.</a>
             </div>
         );
     }

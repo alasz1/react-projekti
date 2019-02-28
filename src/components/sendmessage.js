@@ -29,8 +29,7 @@ class Sendmessage extends Component {
                     <input type="text" placeholder="Subject"
                         value={this.state.messageTitle} onChange={this.handleMessageTitleChange} />
                     <br/>
-                    <input type="text" placeholder="Type message here"
-                        value={this.state.messageText} onChange={this.handleMessageChange} />
+                    <textarea placeholder="Message here" value={this.state.messageText} onChange={this.handleMessageChange} />
                     <br/>
                     <button type="submit" onClick={this.handleCreateClick}>Send</button>
                 </form>

@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 10px;
+    background-color: pink;
+  }
+
+  .messages {
+      margin: 5px 10px;
+
+}
+  
+  .sendmessage {
+    margin: 10px 10px;
+    width: 240px;
+    background-color: lightgreen;
+  }

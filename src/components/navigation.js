@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getCurrentUser } from './serviceclient';
 import { logoutFunc } from './serviceclient';
+import './navigation.css';
 
 
 class Navigation extends Component {
@@ -30,15 +31,13 @@ class Navigation extends Component {
     render() {
 
         return (
-            <div>
-                <p>
-                    <span className="home"><a href="/home">Home </a></span>
-                    <span className="logout"><a type="button" onClick={this.logout}>Logout </a></span>
-                </p>
-                <p className="user">
+            <div className="container">
+                <span className="home"><a href="/home">Home </a></span>
+                <span className="logout"><a type="button" onClick={this.logout}>Logout </a></span>
+                <br />
+                <span className="user">
                     You are signed in as <b>{this.state.username}</b>
-                </p>
-                <hr />
+                </span>
             </div>
         );
     }

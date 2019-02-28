@@ -4,6 +4,7 @@ import { sendMsgFunc } from './serviceclient'
 import Sendmessage from './sendmessage';
 import Navigation from './navigation';
 import Messagelist from './messagelist';
+import './home.css';
 
 class Home extends Component {
 
@@ -25,11 +26,13 @@ class Home extends Component {
                 <div className="navi">
                     <Navigation />
                 </div>
-                <div className="messages">
-                    <Messagelist messages={this.state.messages} />
-                </div>
-                <div className="sendmessage">
-                    <Sendmessage />
+                <div className="wrapper">
+                    <div className="messages">
+                        <Messagelist messages={this.state.messages} />
+                    </div>
+                    <div className="sendmessage">
+                        <Sendmessage />
+                    </div>
                 </div>
             </div >
         );

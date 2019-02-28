@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {signinFunc} from "./serviceclient";
 import {Redirect} from 'react-router-dom';
 import {browserHistory} from 'react-router';
+import './login.css';
 
 class Signup extends Component {
 
-    state = {username: "", password: '', confirmPassword:"", redirect:false};
+    state = {username: '', password: '', confirmPassword: '', redirect:false};
     handleUsernameChange = (e) => {
         const uusiarvo = e.target.value;
         this.setState({username: uusiarvo});
@@ -13,19 +14,20 @@ class Signup extends Component {
     handlePasswordChange = (e) => {
         const uusiarvo = e.target.value;
         this.setState({password: uusiarvo});
-        if (this.confirmPassword === this.password) {
-            document.getElementById("pwd2").style = "border-color:green;"; 
-        } else {
-            document.getElementById("pwd2").style = "border-color:red;"; 
-        }
+        // if (this.confirmPassword === this.password) {
+        //     document.getElementById("pwd2").style = "backgound-color:green;"; 
+        // } else {
+        //     document.getElementById("pwd2").style = "background-color:red;"; 
+        // }
     }
     handleconfirmPasswordChange = (e) => {
         const uusiarvo = e.target.value;
         this.setState({confirmPassword: uusiarvo});
-        if (this.confirmPassword === this.password) {
-            document.getElementById("pwd2").style = "border-color:green;"; 
+        console.log(this.state.password, this.state.confirmPassword);
+        if (this.state.confirmPassword === this.state.password) {
+            document.getElementById("pwd2").style = "background-color:green;"; 
         } else {
-            document.getElementById("pwd2").style = "border-color:red;"; 
+            document.getElementById("pwd2").style = "background-color:red;"; 
         }
     }
     handleCreateClick = (e) => {
@@ -58,18 +60,19 @@ class Signup extends Component {
                         <input type="text" placeholder="Username" 
                             value={this.state.username} onChange={this.handleUsernameChange}
                             required="required"/>
-
+                <br />
                 <label>Password</label>
                 <input type="text" placeholder="Password" 
                             value={this.state.password} onChange={this.handlePasswordChange} required="required" id="pwd1"/>
                  
+                 <label>Confirm Password</label>
                  <input type="text" placeholder="Password" type="password"
                             value={this.state.confirmPassword} onChange={this.handleconfirmPasswordChange} required="required" id="pwd2"/>
                  
                     <button type="submit" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
-                <a href="/">Have an account already? Login here</a>
+                Have an account already? <a href="/">Login here.</a>
             </div>
         );
     }
