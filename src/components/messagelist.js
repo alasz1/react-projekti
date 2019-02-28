@@ -1,24 +1,54 @@
 import React, { Component } from 'react';
-import { getAllMessages } from './serviceclient';
+import { getAllReplies } from './serviceclient';
 import Modal from './modal';
+import Messagebox from './messagebox';
+import './modal.css'; 
+import Replybox from './replybox';
 
 
 class Messagelist extends Component {
+    state= {message:{}};
+
+    toggleModal = (mes) => {
+        getAllReplies(m._id, (response) => {
+            this.setState({message:mes, replies:response});
+            document.getElementById("modal-overlay").classList.toggle('show');
+        })
+        // alert(m.messageTitle);
+        // alert("moro")
+        
+    }
 
     render() {
-        console.log("this.props.messages: ", this.props.messages);
+        //console.log("this.props.messages: ", this.props.messages);
         var messagesReversed = this.props.messages.reverse();
         var allMessages = messagesReversed.map((m) =>
-        <div className="messagebox">
-            <div className="messageitem"><span className="author">{m.username}</span><span className="date">{m.time}</span></div>
-            <span className="title">&nbsp;@{m.messageTitle}</span>
-            <article className="text">{m.messageText}</article>
-        </div>
+            <div onClick={()=> {this.toggleModal(m)}}>
+                <Messagebox m={m} key={m.id} />
+            </div>
+        
         )
+        var allReplies = this.state.replies.map((r) =>
+                <Replybox res={r} key={r.id} />
+        )
+
         return (
             <div>
                 {allMessages}
-                {/* <Modal/> */}
+
+                <div className="modal-overlay" id="modal-overlay">
+                    <div className="modal">
+                        <span className="close" onClick={this.toggleModal}>&#10005;</span>
+                        {this.state.message.messageTitle}
+                        {this.state.message.messageText}
+                    
+                        {allReplies}
+                        <form>
+
+                        </form>
+                    </div>
+                </div>
+
             </div>
         );
     }

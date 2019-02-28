@@ -23,6 +23,11 @@ a {
   box-shadow: 0 1px 6px 0 gray;
 }
 
+.messagebox:hover {
+  cursor: pointer;
+  background-color: rgb(120, 173, 190);
+}
+
 .author {
   float: left;
   font-weight: bold;

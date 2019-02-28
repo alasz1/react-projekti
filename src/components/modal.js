@@ -4,14 +4,14 @@ import './modal.css';
 class Modal extends Component {
 
     toggleModal = (e) => {
-        document.getElementById("modal").classList.toggle('show');
+        document.getElementById("modal-overlay").classList.toggle('show');
     }
 
     render() {
         return (
-            <div className="modal-overlay">
+            <div className="modal-overlay show" id="modal-overlay">
                 <div className="modal">
-                    <span className="close" onClick="this.toggleModal">&#10005;</span>
+                    <span className="close" onClick={this.toggleModal}>&#10005;</span>
                 </div>
             </div>
         );

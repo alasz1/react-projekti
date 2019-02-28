@@ -4,6 +4,7 @@ var msgUrl = "https://miniprojekti2.herokuapp.com/api/messages";
 var localmsgUrl ="http://localhost:3000/api/messages";
 var currentUserUrl = "https://miniprojekti2.herokuapp.com/api/currentuser";
 var logoutUrl = "https://miniprojekti2.herokuapp.com/api/logout";
+//var getRepliesUrl = "https://miniprojekti2.herokuapp.com/api/replies"
 
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
@@ -113,3 +114,4 @@ export function logoutFunc() {
             return response
         });
 }
+
