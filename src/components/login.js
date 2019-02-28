@@ -29,6 +29,10 @@ class Login extends Component {
             })
     }
 
+    redirect = () => {
+        this.props.history.push("/signup");
+    }
+
     render() {
         if (this.state.redirect === true) {
             console.log("toimii")
@@ -51,7 +55,7 @@ class Login extends Component {
                 </form>
                 <br></br>
                 <p class="error">{this.state.error}</p>
-                No account yet? <a href="/signup">Sign up here.</a>
+                No account yet? <span onClick={this.redirect}>Sign up here.</span>
             </div>
         );
     }
