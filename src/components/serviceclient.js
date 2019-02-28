@@ -131,3 +131,21 @@ export function getAllReplies(req, res) {
             return response
         });
 }
+
+export function sendMsgFunc(replyData) {
+    console.log("message: ",replyData)
+    return fetch(repliesUrl, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            "cache-control": "no-cache",
+        },
+        body: JSON.stringify(replyData)
+    })
+    .then(resp => resp.json())
+    .then(function (response) {
+        console.log("message sent", response)
+        return (response);
+    });
+}
