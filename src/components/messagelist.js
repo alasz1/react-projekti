@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getAllReplies, sendReplyFunc, getCurrentUser, deleteMessage } from './serviceclient';
-import Modal from './modal';
 import Messagebox from './messagebox';
 import './modal.css';
 import Replybox from './replybox';

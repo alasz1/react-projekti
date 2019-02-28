@@ -50,7 +50,7 @@ class Login extends Component {
                     <button type="submit" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
-                <p class="error">{this.state.error}</p>
+                <p className="error">{this.state.error}</p>
                 No account yet? <a href="/signup">Sign up here.</a>
             </div>
         );
