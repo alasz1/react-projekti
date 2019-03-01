@@ -1,11 +1,15 @@
-.error {
+
+body {
+  background-color: rgb(241, 241, 241);
+
+}.error {
   color: red;
   font-weight: bold;
 }
 
 .navi {
-  margin: 5px 0px;
-  padding: 30px;
+  margin: 0px 0px;
+  padding: 0px;
 }
 
 a {

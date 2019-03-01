@@ -90,11 +90,12 @@ class Messagelist extends Component {
                         <div className="replies">
                         {allReplies}
                         </div>
-                        <hr />
+                        <div className="replybox">
                         <textarea placeholder="Type reply here" value={this.state.replyText} onChange={this.handleReplyTextChange} />
                         <br />
                         <button type="submit" onClick={this.handleCreateClick}>Send</button>
                         {button}
+                        </div>
                     </div>
                 </div>
 

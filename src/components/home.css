@@ -1,19 +1,29 @@
 .wrapper {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-flow: row-reverse wrap;
+    justify-content: space-around;
     margin: 30px;
     padding: 10px;
-    background-color: pink;
   }
 
-  .messages {
-      margin: 5px 10px;
-
+.messages {
+    order: 2;
+    width: 70%;
+    margin: 5px 10px;
 }
   
-  .sendmessage {
-    margin: 10px 10px;
-    width: 240px;
-    background-color: rgb(135, 212, 245);
+.sendmessages {
+    order: 1;
   }
+
+.sendmessage {
+  display: flex;
+  justify-content: center;
+  margin: 10px 10px;
+  padding: 10px;
+  width: 240px;
+  border-radius: 1em;
+  background-color: lightblue;
+  box-shadow: 0 1px 6px 0 gray;
+  
+}

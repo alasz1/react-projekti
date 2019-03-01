@@ -39,8 +39,18 @@
 
 .replyto {
     background-color: lightblue;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px;
+    padding: 4px;
 }
 
 .replies {
     background-color: lightgrey;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.replybox {
+    margin: 5px;
 }
