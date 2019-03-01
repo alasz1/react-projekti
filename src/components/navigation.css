@@ -1,22 +1,44 @@
+.bigcontainer {
+  background-color: rgb(46, 46, 149);
+}
+
 .container {
-    background-color: lightblue;
-    height: 50px;
-    padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50px;
+  padding: 5px;
+}
+
+button:hover {
+  border: 1px solid blue;
 }
 
 .home {
-    margin: 5px 5px;
-    padding: 3px;
-    background-color: lightgreen;
-    border-radius: 0.4em;
-  }
+  flex: left;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 5px;
+  padding: 3px;
+  background-color: lightgreen;
+  border-radius: 0.4em;
+}
   
-  .logout {
-    padding: 3px;
-    background-color: red;
-    border-radius: 0.4em;
-  }
-  
-  .user {
+.logout {
+  flex: right;
+  border: none;
+  border-radius: 4px;
+  padding: 3px;
+  background-color: red;
+  border-radius: 0.4em;
+}
 
-  }
+.userNavi {
+  position: relative;
+}
+  
+.user {
+  position: absolute;
+  right: 0%;
+  left: 80%;
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getAllMessages } from './serviceclient'
-import { sendMsgFunc } from './serviceclient'
 import Sendmessage from './sendmessage';
 import Navigation from './navigation';
 import Messagelist from './messagelist';
@@ -35,7 +34,7 @@ class Home extends Component {
                     <div className="messages">
                         <Messagelist messages={this.state.messages} callback={this.refreshList} />
                     </div>
-                    <div className="sendmessage">
+                    <div className="sendmessages">
                         <Sendmessage callback={this.refreshList} />
                     </div>
                 </div>

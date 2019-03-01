@@ -27,7 +27,7 @@ class Sendmessage extends Component {
     render() {
 
         return (
-            <div>
+            <div className="sendmessage">
                 <form>
                     <input type="text" placeholder="Subject"
                         value={this.state.messageTitle} onChange={this.handleMessageTitleChange} />

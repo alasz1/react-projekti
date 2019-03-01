@@ -28,10 +28,29 @@
 .close {
     cursor: pointer;
     float: right;
-    padding: 1em;
+    margin: 0.2em;
+    padding: 0.2em 0.4em;
     font-size: 1em;
     text-align:right;
     position: absolute;
     top:0;
     right: 0;
+}
+
+.replyto {
+    background-color: lightblue;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px;
+    padding: 4px;
+}
+
+.replies {
+    background-color: lightgrey;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px;
+    padding: 3px;
+}
+
+.replybox {
+    margin: 5px;
 }

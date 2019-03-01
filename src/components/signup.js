@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {signinFunc} from "./serviceclient";
-import {Redirect} from 'react-router-dom';
-import {browserHistory} from 'react-router';
 import './login.css';
 
 class Signup extends Component {
@@ -22,9 +20,8 @@ class Signup extends Component {
     }
     handleconfirmPasswordChange = (e) => {
         const uusiarvo = e.target.value;
-        console.log(this.state.password, this.state.confirmPassword);
         if (uusiarvo === this.state.password) {
-            document.getElementById("pwd2").style = "background-color:green;"; 
+            document.getElementById("pwd2").style = "background-color:lightgreen;"; 
         } else {
             document.getElementById("pwd2").style = "background-color:red;"; 
         }
@@ -62,14 +59,14 @@ class Signup extends Component {
                             required="required"/>
                 <br />
                 <label>Password</label>
-                <input type="text" placeholder="Password" 
+                <input type="password" placeholder="Password" 
                             value={this.state.password} onChange={this.handlePasswordChange} required="required" id="pwd1"/>
                  
                  <label>Confirm Password</label>
-                 <input type="text" placeholder="Password" type="password"
+                 <input placeholder="Password" type="password"
                             value={this.state.confirmPassword} onChange={this.handleconfirmPasswordChange} required="required" id="pwd2"/>
                  
-                    <button type="submit" onClick={this.handleCreateClick}>Login</button>
+                    <button type="submit" className="signup" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
                 Have an account already? <a href="/">Login here.</a>

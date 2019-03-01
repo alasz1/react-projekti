@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { getAllReplies, sendReplyFunc, getCurrentUser, deleteMessage } from './serviceclient';
-import Modal from './modal';
 import Messagebox from './messagebox';
 import './modal.css';
 import Replybox from './replybox';
 
 
 class Messagelist extends Component {
-    state = { messages: this.props.messages, message: {}, replies: [], replyText: "", currentUser: ''};
+    state = { messages: this.props.messages, message: {}, replies: [], replyText: "", currentUser: '' };
 
     toggleModal = (mes) => {
         console.log("togglemodal")
@@ -18,7 +17,7 @@ class Messagelist extends Component {
             })
         getCurrentUser()
             .then(response => {
-                this.setState({currentUser: response.user});
+                this.setState({ currentUser: response.user });
             })
     }
 
@@ -46,10 +45,10 @@ class Messagelist extends Component {
         console.log("handleDelete, _id. ", this.state.message._id);
         this.toggleReply();
         deleteMessage(this.state.message._id)
-        .then(response => {
-            console.log("handleDelete response: ", response);
-            this.props.callback(response);
-        });
+            .then(response => {
+                console.log("handleDelete response: ", response);
+                this.props.callback(response);
+            });
     }
 
 
@@ -82,16 +81,21 @@ class Messagelist extends Component {
 
                 <div className="modal-overlay" id="modal-overlay">
                     <div className="modal">
-                        <span className="close" onClick={this.toggleReply}>&#10005;</span>
-                        {this.state.message.username}&nbsp;
-                        {this.state.message.messageTitle}<br />
-                        {this.state.message.messageText}
-
+                        <span className="close" onClick={this.toggleReply}>&#10062;</span>
+                        <div className="replyto">
+                            <b>{this.state.message.username}</b>&nbsp;@
+                            {this.state.message.messageTitle}&nbsp;<i>{this.state.message.time}</i><br />
+                            {this.state.message.messageText}
+                        </div>
+                        <div className="replies">
                         {allReplies}
+                        </div>
+                        <div className="replybox">
                         <textarea placeholder="Type reply here" value={this.state.replyText} onChange={this.handleReplyTextChange} />
                         <br />
                         <button type="submit" onClick={this.handleCreateClick}>Send</button>
                         {button}
+                        </div>
                     </div>
                 </div>
 

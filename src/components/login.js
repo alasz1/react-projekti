@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { loginFunc } from "./serviceclient";
+import './login.css';
 
 
 
@@ -29,6 +30,10 @@ class Login extends Component {
             })
     }
 
+    redirect = () => {
+        this.props.history.push("/signup");
+    }
+
     render() {
         if (this.state.redirect === true) {
             console.log("toimii")
@@ -47,11 +52,11 @@ class Login extends Component {
                     <input type="text" placeholder="Password"
                         value={this.state.password} onChange={this.handlePasswordChange} required="required" />
 
-                    <button type="submit" onClick={this.handleCreateClick}>Login</button>
+                    <button type="submit" className="login" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>
                 <p class="error">{this.state.error}</p>
-                No account yet? <a href="/signup">Sign up here.</a>
+                No account yet? <span className="signupclick" onClick={this.redirect}>Sign up here.</span>
             </div>
         );
     }

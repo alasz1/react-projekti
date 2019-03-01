@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Modal from './modal';
 import './modal.css'; 
 
 class Messagebox extends Component {
