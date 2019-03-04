@@ -25,6 +25,7 @@ a {
   border: 2px;
   border-radius: 1em;
   box-shadow: 0 1px 6px 0 gray;
+  width: 100%;
 }
 
 .messagebox:hover {
@@ -52,7 +53,7 @@ a {
 }
 
 input {
-  width: 200px;
+  /* width: 200px; */
   margin: 3px;
   padding: 3px;
   border: 1px 1px 0px 0px solid red;
@@ -74,4 +75,43 @@ button {
 
 .signupclick {
   color: blue;
+}
+
+@media only screen and (max-width: 1080px) {
+  .sendmessages{
+    width: 70%;
+  }
+
+  .sendmessage{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sendmessages{
+    width: 90%;
+    margin: 0;
+  }
+
+  .sendmessage{
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .messages{
+    width: 90% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .messagebox{
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .modal{
+    width: 90vw !important;
+    height: 90vh !important;
+  }
 }

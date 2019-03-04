@@ -40,18 +40,16 @@ class Login extends Component {
         }
 
         return (
-            <div>
+            <div className="loginbox">
                 <h2>Login</h2>
                 <form>
                     <label>Username</label>
                     <input type="text" placeholder="Username"
                         value={this.state.username} onChange={this.handleUsernameChange}
                         required="required" />
-
                     <label>Password</label>
-                    <input type="text" placeholder="Password"
+                    <input type="password" placeholder="Password"
                         value={this.state.password} onChange={this.handlePasswordChange} required="required" />
-
                     <button type="submit" className="login" onClick={this.handleCreateClick}>Login</button>
                 </form>
                 <br></br>

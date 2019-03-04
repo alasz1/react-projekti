@@ -38,13 +38,15 @@ class Navigation extends Component {
             <div className="bigcontainer">
                 <div className="container">
                     <button type="button" className="home" onClick={this.home}>Home</button>
+                    <div className="white-text">You are signed in as <b>{this.state.username}</b></div>
                     <button type="button" className="logout" onClick={this.logout}>Logout</button>
+                    
                 </div>
-                <div className="userNavi">
+                {/* <div className="userNavi">
                     <span className="user">
                         You are signed in as <b>{this.state.username}</b>
                     </span>
-                </div>
+                </div> */}
             </div>
         )
     }

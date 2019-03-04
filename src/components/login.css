@@ -1,5 +1,5 @@
 input {
-    width: 200px;
+    /* width: 200px; */
     margin: 3px 6px 3px 2px;
     padding: 3px;
     border: 1px 1px 0px 0px solid red;
@@ -14,4 +14,18 @@ input {
 
   button:hover {
       background-color: lightgreen;
+  }
+
+  .loginbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loginbox form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
